@@ -428,14 +428,14 @@
 
         // Configurazione per numero di giocatori
         const gameConfig = {
-            5: { discepoli: 3, infiltrati: 1, giornalisti: 1 },
-            6: { discepoli: 4, infiltrati: 1, giornalisti: 1 },
-            7: { discepoli: 4, infiltrati: 2, giornalisti: 1 },
-            8: { discepoli: 5, infiltrati: 2, giornalisti: 1 },
-            9: { discepoli: 5, infiltrati: 3, giornalisti: 1 },
-            10: { discepoli: 6, infiltrati: 3, giornalisti: 1 },
-            11: { discepoli: 6, infiltrati: 3, giornalisti: 2 },
-            12: { discepoli: 7, infiltrati: 3, giornalisti: 2 }
+            5: { veri: 3, confusi: 1, falsi: 1 },
+            6: { veri: 4, confusi: 1, falsi: 1 },
+            7: { veri: 4, confusi: 2, falsi: 1 },
+            8: { veri: 5, confusi: 2, falsi: 1 },
+            9: { veri: 5, confusi: 3, falsi: 1 },
+            10: { veri: 6, confusi: 3, falsi: 1 },
+            11: { veri: 6, confusi: 3, falsi: 2 },
+            12: { veri: 7, confusi: 3, falsi: 2 }
         };
 
         let gameState = {
@@ -482,18 +482,18 @@
             // Crea array di ruoli
             let roles = [];
 
-            // Aggiungi Discepoli
-            for (let i = 0; i < config.discepoli; i++) {
+            // Aggiungi veri
+            for (let i = 0; i < config.veri; i++) {
                 roles.push({ role: 'discepolo', word: gameState.selectedWordPair.discepolo });
             }
 
-            // Aggiungi Infiltrati
-            for (let i = 0; i < config.infiltrati; i++) {
+            // Aggiungi confusi
+            for (let i = 0; i < config.confusi; i++) {
                 roles.push({ role: 'infiltrato', word: gameState.selectedWordPair.infiltrato });
             }
 
-            // Aggiungi Giornalisti
-            for (let i = 0; i < config.giornalisti; i++) {
+            // Aggiungi falsi
+            for (let i = 0; i < config.falsi; i++) {
                 roles.push({ role: 'giornalista', word: 'GIORNALISTA' });
             }
 
@@ -585,9 +585,9 @@
             const config = gameConfig[gameState.numPlayers];
             gameStats.innerHTML = `
                 <p><strong>Configurazione Partita:</strong></p>
-                <p>Discepoli: ${config.discepoli}</p>
-                <p>Infiltrati: ${config.infiltrati}</p>
-                <p>Giornalisti: ${config.giornalisti}</p>
+                <p>veri: ${config.veri}</p>
+                <p>Confusi: ${config.confusi}</p>
+                <p>Falsi: ${config.falsi}</p>
             `;
         }
 
